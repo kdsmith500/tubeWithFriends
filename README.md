@@ -66,3 +66,24 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+<hr>
+<hr>
+
+<h1>tubeWithFriends</h1>
+
+This project seeks to make a chat room where users can queue up music and movies for one another using YouTubes API, socket.io, and MERN technologies.
+
+<h5>Links:</h5>
+<a href="">GitHub</a>
+<br/>
+<a href="">Trello</a>
+<br/>
+<h5>Wireframes and ERD:</h5>
+<img src="wireframes/splash-page.jpg">
+<img src="wireframes/sign-up-page.jpg">
+<img src="wireframes/home-page.jpg">
+<img src="wireframes/profile-page.jpg">
+<img src="wireframes/chat-room.jpg">
+<img src="wireframes/admin-nav-user-index.jpg">
+<img src="wireframes/erd.jpg">
