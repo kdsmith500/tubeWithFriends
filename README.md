@@ -75,9 +75,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 This project seeks to make a chat room where users can queue up music and movies for one another using YouTubes API, socket.io, and MERN technologies.
 
 <h5>Links:</h5>
-<a href="">GitHub</a>
+<a href="https://github.com/kdsmith500/tubeWithFriends.git">GitHub</a>
 <br/>
-<a href="">Trello</a>
+<a href="https://trello.com/b/KOLT8LYU/tubewithfriends">Trello</a>
 <br/>
 <h5>Wireframes and ERD:</h5>
 <img src="wireframes/splash-page.jpg">
