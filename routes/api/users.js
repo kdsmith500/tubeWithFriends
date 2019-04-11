@@ -6,11 +6,12 @@ const usersCtrl = require('../../controllers/users');
 /*---------- Public Routes ----------*/
 
 /*---------- Protected Routes ----------*/
-
-router.get('/profile', usersCtrl.profile)
-router.get('/users', usersCtrl.users);
-router.post('/profile', usersCtrl.editProfile)
-router.post('/users', usersCtrl.deleteUser)
+router.post('/signup', usersCtrl.signup);
+router.post('/login', usersCtrl.login);
+// router.get('/profile', usersCtrl.profile)
+// router.get('/users', usersCtrl.users);
+// router.post('/profile', usersCtrl.editProfile)
+// router.post('/users', usersCtrl.deleteUser)
 
 /*----- Helper Functions -----*/
 

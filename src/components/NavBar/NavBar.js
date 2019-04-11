@@ -12,11 +12,15 @@ const NavBar = (props) => {
         &nbsp;|&nbsp;
         <Link to='/users' className='NavBar-link'>Users</Link>
         &nbsp;|&nbsp;
+        <Link to='' className='NavBar-link' onClick={props.handleLogout}>Log Out</Link>
+        &nbsp;|&nbsp;
         <Link to='/chatroom' className='NavBar-link'>Chat Room Test</Link>
         &nbsp;|&nbsp;
         <Link to='/' className='NavBar-link'>Login Test</Link>
         &nbsp;|&nbsp;
         <Link to='/signup' className='NavBar-link'>Sign-Up Test</Link>
+        {/* &nbsp;|&nbsp;
+        <span className='NavBar-welcome'>Welcome, {props.user.name}</span> */}
         </div>
     </div>
   );

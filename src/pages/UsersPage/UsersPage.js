@@ -4,7 +4,10 @@ import NavBar from '../../components/NavBar/NavBar';
 
 const UsersPage = (props) => (
     <div className="">
-        <NavBar />
+        <NavBar
+            user={props.user}
+            handleLogout={props.handleLogout}
+        />
         ADMIN'S EYES ONLY: Users Page
     </div>
 );
