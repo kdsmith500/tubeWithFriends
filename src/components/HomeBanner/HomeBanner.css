@@ -1,0 +1,14 @@
+.HomeBanner-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HomeBanner-icons > img {
+    width: 100px;
+    height: 100px;
+}
+
+/* .HomeBanner-icons > div:hover {
+    opacity: 0;
+} */

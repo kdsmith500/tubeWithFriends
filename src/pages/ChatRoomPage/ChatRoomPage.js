@@ -1,16 +1,17 @@
 import React from 'react';
-import './ChatRoom.css';
+import './ChatRoomPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import ChatRoom from '../../components/ChatRoom/ChatRoom';
 
-const ChatRoom = (props) => (
-    <div className="">
+const ChatRoomPage = (props) => (
+    <div className="ChatRoomPage">
         <NavBar
             user={props.user}
             handleLogout={props.handleLogout}
         />
         <br/>
-        Chat Room
+        <ChatRoom />
     </div>
 );
 
-export default ChatRoom;
+export default ChatRoomPage;
