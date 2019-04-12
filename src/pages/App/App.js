@@ -10,58 +10,52 @@ import UsersPage from '../UsersPage/UsersPage';
 import userService from '../../utils/userService';
 import randomService from '../../utils/randomService';
 
-const icons = ['./images/icon-computer.png', './images/icon-boombox.png',
-  './images/icon-television.png', './images/icon-laptop.png', './images/icon-tablet.png',
-  './images/icon-girl-1.png', './images/icon-guy-1.png', './images/icon-girl-2.png',
-  './images/icon-guy-2.png', './images/icon-girl-3.png'];
+const icons = ['./images/icon-computer.png', './images/icon-girl-1.png', './images/icon-boombox.png',
+  './images/icon-guy-1.png', './images/icon-television.png', './images/icon-girl-2.png',
+  './images/icon-laptop.png', './images/icon-guy-2.png', './images/icon-tablet.png', 
+  './images/icon-girl-3.png'];
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: null,
-      icon1: './images/icon-computer.png',
-      icon2: './images/icon-boombox.png',
-      icon3: './images/icon-television.png',
-      icon4: './images/icon-tablet.png',
-      icon5: './images/icon-laptop.png'
+      homeIcon1: './images/icon-computer.png',
+      homeIcon2: './images/icon-boombox.png',
+      homeIcon3: './images/icon-television.png',
+      homeIcon4: './images/icon-tablet.png',
+      homeIcon5: './images/icon-laptop.png'
     };
   }
 
-  // getInitialState() {
-  //   return {
-  //       user: null
-  //   };
-  // }
-
-  handleIcon1 = () => {
+  handleHomeIcon1 = () => {
     let idx = randomService.randomTen();
     console.log(`${idx}`);
-    this.setState({ icon1: icons[idx] });
+    this.setState({ homeIcon1: icons[idx] });
   }
 
-  handleIcon2 = () => {
+  handleHomeIcon2 = () => {
     let idx = randomService.randomTen();
     console.log(`${idx}`);
-    this.setState({ icon2: icons[idx] });
+    this.setState({ homeIcon2: icons[idx] });
   }
 
-  handleIcon3 = () => {
+  handleHomeIcon3 = () => {
     let idx = randomService.randomTen();
     console.log(`${idx}`);
-    this.setState({ icon3: icons[idx] });
+    this.setState({ homeIcon3: icons[idx] });
   }
 
-  handleIcon4 = () => {
+  handleHomeIcon4 = () => {
     let idx = randomService.randomTen();
     console.log(`${idx}`);
-    this.setState({ icon4: icons[idx] });
+    this.setState({ homeIcon4: icons[idx] });
   }
   
-  handleIcon5 = () => {
+  handleHomeIcon5 = () => {
     let idx = randomService.randomTen();
     console.log(`${idx}`);
-    this.setState({ icon5: icons[idx] });
+    this.setState({ homeIcon5: icons[idx] });
   }
 
   handleLogout = () => {
@@ -101,18 +95,18 @@ class App extends Component {
           <Route exact path='/home' render={() =>
             userService.getUser() ? 
               <HomePage
-                handleLogout={this.handleLogout}
                 user={this.state.user}
-                icon1={this.state.icon1}
-                icon2={this.state.icon2}
-                icon3={this.state.icon3}
-                icon4={this.state.icon4}
-                icon5={this.state.icon5}
-                handleIcon1={this.handleIcon1}
-                handleIcon2={this.handleIcon2}
-                handleIcon3={this.handleIcon3}
-                handleIcon4={this.handleIcon4}
-                handleIcon5={this.handleIcon5}
+                handleLogout={this.handleLogout}
+                homeIcon1={this.state.homeIcon1}
+                homeIcon2={this.state.homeIcon2}
+                homeIcon3={this.state.homeIcon3}
+                homeIcon4={this.state.homeIcon4}
+                homeIcon5={this.state.homeIcon5}
+                handleHomeIcon1={this.handleHomeIcon1}
+                handleHomeIcon2={this.handleHomeIcon2}
+                handleHomeIcon3={this.handleHomeIcon3}
+                handleHomeIcon4={this.handleHomeIcon4}
+                handleHomeIcon5={this.handleHomeIcon5}
               />
             :
               <Redirect to='/'/>
@@ -136,7 +130,7 @@ class App extends Component {
               <Redirect to='/'/>
           }/>
           <Route exact path='/users' render={() =>
-            userService.getUser() ? 
+            userService.getAdmin() ? 
               <UsersPage
                 handleLogout={this.handleLogout}
                 user={this.state.user}

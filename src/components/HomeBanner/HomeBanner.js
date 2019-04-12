@@ -7,11 +7,11 @@ const HomeBanner = (props) => {
         <div className='HomeBanner'>
             <hr/>
             <div className='HomeBanner-icons'>
-                <img src={require(`${props.icon1}`)} alt="Computer Icon" onMouseOver={props.handleIcon1} />
-                <img src={require(`${props.icon2}`)} alt="Boombox Icon" onMouseOver={props.handleIcon2} />
-                <img src={require(`${props.icon3}`)} alt="Television Icon" onMouseOver={props.handleIcon3} />
-                <img src={require(`${props.icon4}`)} alt="Laptop Icon" onMouseOver={props.handleIcon4} />
-                <img src={require(`${props.icon5}`)} alt="Tablet Icon" onMouseOver={props.handleIcon5} />
+                <img src={require(`${props.homeIcon1}`)} alt="Computer Icon" onMouseOver={props.handleHomeIcon1} />
+                <img src={require(`${props.homeIcon2}`)} alt="Boombox Icon" onMouseOver={props.handleHomeIcon2} />
+                <img src={require(`${props.homeIcon3}`)} alt="Television Icon" onMouseOver={props.handleHomeIcon3} />
+                <img src={require(`${props.homeIcon4}`)} alt="Laptop Icon" onMouseOver={props.handleHomeIcon4} />
+                <img src={require(`${props.homeIcon5}`)} alt="Tablet Icon" onMouseOver={props.handleHomeIcon5} />
             </div>
             <hr/>
             <h1>Rooms:</h1>

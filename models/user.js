@@ -14,12 +14,22 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     unique: true
   },
-  password: String,
+  password: {
+    type: String,
+    required: true
+  },
   avatar: {
       type: String,
       default: ''
   },
-  bio: String
+  bio: {
+    type: String,
+    default: "I'm kind of a big deal..."
+  },
+  admin: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: true
 });

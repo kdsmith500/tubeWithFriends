@@ -23,6 +23,10 @@ function getUser() {
   return tokenService.getUserFromToken();
 }
 
+function getAdmin() {
+  return tokenService.getAdminFromToken();
+}
+
 function logout() {
   tokenService.removeToken();
 }
@@ -44,6 +48,7 @@ function login(creds) {
 export default {
   signup, 
   getUser,
+  getAdmin,
   logout,
   login
 };
