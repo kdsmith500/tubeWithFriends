@@ -12,14 +12,14 @@ import userService from '../../utils/userService';
 class App extends Component {
   constructor() {
     super();
-    this.state = {...this.getInitialState()};
+    this.state = { user: null };
   }
 
-  getInitialState() {
-    return {
-        user: null
-    };
-  }
+  // getInitialState() {
+  //   return {
+  //       user: null
+  //   };
+  // }
 
   handleLogout = () => {
     userService.logout();
@@ -33,11 +33,13 @@ class App extends Component {
   /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
+    console.log('componentDidMount');
     const user = userService.getUser();
     this.setState({ user });
   }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
         <Switch>

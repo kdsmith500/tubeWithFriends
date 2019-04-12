@@ -8,6 +8,7 @@ const ProfilePage = (props) => (
             user={props.user}
             handleLogout={props.handleLogout}
         />
+        <br/>
         Profile Page
     </div>
 );

@@ -5,12 +5,8 @@ import './SignUpPage.css';
 
 
 class SignUpPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {message: ''}
-    }
-
     state = {
+        message: '',
         name: '',
         email: '',
         password: '',
@@ -50,7 +46,12 @@ class SignUpPage extends Component {
     render() {
         return (
         <div className='SignupPage'>
-            <header className="header-footer">Sign Up</header>
+            <header>
+                <br/>
+                <h1>tubeWithFriends</h1>
+                <br/><hr/><br/>
+            </header>
+            <h3 className="header-footer">Sign Up</h3>
             <form className="form-horizontal" onSubmit={this.handleSubmit} >
                 <div className="form-group">
                     <div className="col-sm-12">
@@ -74,6 +75,7 @@ class SignUpPage extends Component {
                 </div>
                 <div className="form-group">
                     <div className="col-sm-12 text-center">
+                        <br/>
                         <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
                         <Link to='/'>Cancel</Link>
                     </div>

@@ -8,6 +8,7 @@ const UsersPage = (props) => (
             user={props.user}
             handleLogout={props.handleLogout}
         />
+        <br/>
         ADMIN'S EYES ONLY: Users Page
     </div>
 );

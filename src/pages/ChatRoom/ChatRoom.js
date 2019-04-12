@@ -8,6 +8,7 @@ const ChatRoom = (props) => (
             user={props.user}
             handleLogout={props.handleLogout}
         />
+        <br/>
         Chat Room
     </div>
 );
