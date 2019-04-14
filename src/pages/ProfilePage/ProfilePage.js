@@ -24,11 +24,18 @@ class ProfilePage extends Component {
     handleSubmitEdit = async (e) => {
         e.preventDefault();
         try {
-            await userService.edit(this.state);
-            // Let <App> know a user has signed up!
-            this.setState({user: userService.getUser()});
-            // Successfully signed up - show GamePage
-            this.props.history.push('/profile');
+            await userService.edit(this.state).then(this.props.handleSignupOrLogin);
+            // this.props.history.push('/profile');
+        } catch (err) {
+            // Invalid user data (probably duplicate email)
+            // this.props.updateMessage(err.message);
+        }
+    }
+
+    handleSubmitDelete = async (e) => {
+        e.preventDefault();
+        try {
+            await userService.remove().then(this.props.handleLogout());
         } catch (err) {
             // Invalid user data (probably duplicate email)
             // this.props.updateMessage(err.message);
@@ -46,12 +53,14 @@ class ProfilePage extends Component {
                 <UserProfile
                     user={this.props.user}
                     handleUpdateUserProfile={this.handleUpdateUserProfile}
-                />
+                    />
                 <br/>
                 <UserProfileEdit
-                    user={this.state.user}
+                    userEdit={this.state.user}
+                    user={this.props.user}
                     handleEdit={this.handleEdit}
                     handleSubmitEdit={this.handleSubmitEdit}
+                    handleSubmitDelete={this.handleSubmitDelete}
                 />
             </div>
         );

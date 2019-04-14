@@ -46,11 +46,15 @@ async function show(req, res) {
 }
 
 async function edit(req, res) {
+    console.log(req.body)
     console.log('user: ', req.user)
     try {
-        await User.create(req.body);
+        await User.findOneAndUpdate({ email: req.user.email }, req.body, { new: true })
+            .then(user => {
+                res.status(200)
+                .json(user)
+            })
         // Use the profile action to return the list
-        show(req, res);
     } catch (err) {
         res.json({err});
     }
@@ -63,9 +67,11 @@ async function index(req, res) {
 
 async function remove(req, res) {
     try {
-        await User.create(req.body);
-        // Use the profile action to return the list
-        profile(req, res);
+        await User.findOneAndRemove({ email: req.user.email });
+            // .then(user => {
+            //     res.status(200)
+            //     .json(user)
+            // })
     } catch (err) {
         res.json({err});
     }

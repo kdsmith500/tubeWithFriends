@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './UserProfileEdit.css';
+
 
 const UserProfileEdit = (props) => {
     return (
@@ -26,12 +26,14 @@ const UserProfileEdit = (props) => {
                     </div>
                 </div>
                 <div className="">
-                    <div className="">
+                    <div className="UserProfileEdit-buttons">
                         <br/>
-                        <button className="">Edit</button>&nbsp;&nbsp;
-                        <Link to='/'>Delete</Link>
+                        <button className="">Edit</button>
                     </div>
                 </div>
+            </form>
+            <form className="UserProfileEdit-buttons" onSubmit={props.handleSubmitDelete}>
+                <button className="">Delete</button>
             </form>
         </div>
     );

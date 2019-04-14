@@ -67,56 +67,10 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  handleUpdateUserProfile = (updateUserProfile) => {
-    this.setState({ updateUserProfile });
-  }
-  
-  handleUpdateUserProfileEdit = (updateUserProfileEdit) => {
-    this.setState({ updateUserProfileEdit });
-  }
-
-  handleUpdateRemoveUser = (updateRemoveUser) => {
-    this.setState({ updateRemoveUser });
-  }
-
-  handleUpdateUsers = (UpdateUsers) => {
-    this.setState({ UpdateUsers });
-  }
-
-  // handleEdit = (e) => {
-  //   // this.props.updateMessage('');
-  //   this.setState({
-  //       // Using ES2015 Computed Property Names
-  //       [e.target.name]: e.target.value
-  //   });
-  // }
-
-  // handleSubmitEdit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //       await userService.edit(this.state);
-  //       // Let <App> know a user has signed up!
-  //       this.handleEdit();
-  //       // Successfully signed up - show GamePage
-  //       this.props.history.push('/profile');
-  //   } catch (err) {
-  //       // Invalid user data (probably duplicate email)
-  //       // this.props.updateMessage(err.message);
-  //   }
-  // }
-
   /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
     console.log('componentDidMount');
-    // const userProfile = await userService.show();
-    // const userProfileEdit = await userService.edit();
-    // const users = await userService.index();
-    // const removeUser = await userService.remove();
-    const userProfileEdit = await userService.edit();
-    this.handleUpdateUserProfileEdit(userProfileEdit);
-    const userProfile = await userService.show();
-    this.handleUpdateUserProfile(userProfile);
     const user = userService.getUser();
     this.setState({ user });
   }
@@ -163,6 +117,7 @@ class App extends Component {
                 history={history}
                 user={this.state.user}
                 handleLogout={this.handleLogout}
+                handleSignupOrLogin={this.handleSignupOrLogin}
               />
             :
               <Redirect to='/'/>
@@ -181,8 +136,6 @@ class App extends Component {
               <UsersPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
-                handleUpdateUsers={this.handleUpdateUsers}
-                handleUpdateRemoveUser={this.handleUpdateRemoveUser}
               />
             :
               <Redirect to='/'/>

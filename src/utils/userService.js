@@ -45,15 +45,15 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-function show() {
-  const options = {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken()
-    }
-  };
+// function show() {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'Authorization': 'Bearer ' + tokenService.getToken()
+//     }
+//   };
   // return fetch(BASE_URL, options).then(res => res.json());
-}
+// }
 
 function edit(profile) {
   console.log(profile);
@@ -61,25 +61,19 @@ function edit(profile) {
     method: 'PUT',
     // headers: new Headers({'Content-Type': 'application/json'}),
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken()
     },
     body: JSON.stringify(profile)
   })
   .then(res => res.json())
-  .then(response => console.log('Success:', JSON.stringify(response)))
-  .catch(error => console.error('Error:', error));
+  .then(response => {
+    console.log('Success:', JSON.stringify(response));
+    return JSON.stringify(response)
+  })
+  .catch(error => console.error('Error:', error))
+  .then(({token}) => tokenService.setToken(token));
 }
-
-//   const options = {
-//     method: 'PUT',
-//     headers: {
-//       'Content-type': 'application/json',
-//       'Authorization': 'Bearer ' + tokenService.getToken()
-//     },
-//     body: JSON.stringify(profile)
-//   };
-//   // return fetch(BASE_URL, options).then(res => res.json());
-// }
 
 // function index() {
 //   const options = {
@@ -91,17 +85,15 @@ function edit(profile) {
 //   return fetch(BASE_URL, options).then(res => res.json());
 // }
 
-// function remove(user) {
-//   const options = {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-type': 'application/json',
-//       'Authorization': 'Bearer ' + tokenService.getToken()
-//     },
-//     body: JSON.stringify(user)
-//   };
-//   return fetch(BASE_URL, options).then(res => res.json());
-// }
+function remove() {
+  return fetch(BASE_URL + 'profile', {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    },
+  });
+}
 
 export default {
   signup, 
@@ -109,8 +101,8 @@ export default {
   getAdmin,
   logout,
   login,
-  show,
+  // show,
   edit,
+  remove,
   // index,
-  // remove
 };

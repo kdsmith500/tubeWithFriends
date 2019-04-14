@@ -11,7 +11,7 @@ router.post('/login', usersCtrl.login);
 router.use(require('../../config/auth'));
 router.post('/', checkAuth, usersCtrl.show);
 router.put('/edit', checkAuth, usersCtrl.edit);
-router.post('/users', checkAuth, usersCtrl.index);
+router.delete('/profile', checkAuth, usersCtrl.remove);
 router.post('/users', checkAuth, usersCtrl.remove);
 
 /*----- Helper Functions -----*/

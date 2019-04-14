@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
       type: String,
-      default: ''
+      default: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
   },
   bio: {
     type: String,
