@@ -3,7 +3,7 @@ import './UsersPage.css';
 import NavBar from '../../components/NavBar/NavBar';
 
 const UsersPage = (props) => (
-    <div className="">
+    <div className="UsersPage">
         <NavBar
             user={props.user}
             handleLogout={props.handleLogout}

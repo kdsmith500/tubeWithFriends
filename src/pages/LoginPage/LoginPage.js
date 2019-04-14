@@ -39,22 +39,22 @@ class LoginPage extends Component {
           <h1>tubeWithFriends</h1>
           <br/><hr/><br/>
         </header>
-        <h3 className="header-footer">Log In</h3>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+        <h3 className="">Log In</h3>
+        <form className="" onSubmit={this.handleSubmit} >
+          <div className="">
+            <div className="">
+              <input type="email" className="" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+          <div className="">
+            <div className="">
+              <input type="password" className="" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
+          <div className="">
+            <div className="">
               <br/>
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+              <button className="">Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/signup'>Sign Up</Link>
             </div>
           </div>

@@ -4,7 +4,11 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
     signup,
-    login
+    login,
+    show,
+    edit,
+    index,
+    remove
 };
 
 async function signup(req, res) {
@@ -33,6 +37,37 @@ async function login(req, res) {
         });
     } catch (err) {
         return res.status(401).json(err);
+    }
+}
+
+async function show(req, res) {
+    const profile = await User.find( req.user );
+    res.json(profile);
+}
+
+async function edit(req, res) {
+    console.log('user: ', req.user)
+    try {
+        await User.create(req.body);
+        // Use the profile action to return the list
+        show(req, res);
+    } catch (err) {
+        res.json({err});
+    }
+}
+
+async function index(req, res) {
+    const users = await User.find({}).sort({ email: 1 });
+    res.json(users);
+}
+
+async function remove(req, res) {
+    try {
+        await User.create(req.body);
+        // Use the profile action to return the list
+        profile(req, res);
+    } catch (err) {
+        res.json({err});
     }
 }
 
