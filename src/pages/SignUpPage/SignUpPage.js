@@ -44,39 +44,51 @@ class SignUpPage extends Component {
     // }
 
     render() {
+        let hrStyle = {
+            border: `3px solid ${this.props.loginSignUpHr}`
+        };
+        
+        let signUpStyle = {
+            color: `${this.props.loginSignUp}`
+        }
+        
+        let titleStyle = {
+            color: `${this.props.loginSignUpTitle}`
+        };
+
         return (
         <div className='SignupPage'>
             <header>
                 <br/>
-                <h1>tubeWithFriends</h1>
-                <br/><hr/><br/>
+                <h1 style={titleStyle} onClick={this.props.handleLoginSignUpTitle}>tubeWithFriends</h1>
+                <br/><hr style={hrStyle} onClick={this.props.handleLoginSignUpHr} /><br/>
             </header>
-            <h3 className="">Sign Up</h3>
-            <form className="" onSubmit={this.handleSubmit} >
-                <div className="">
-                    <div className="">
-                        <input type="text" className="" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+            <h3 style={signUpStyle} onClick={this.props.handleLoginSignUp}>Sign Up</h3>
+            <form onSubmit={this.handleSubmit} >
+                <div>
+                    <div>
+                        <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
-                        <input type="email" className="" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+                <div>
+                    <div>
+                        <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
-                        <input type="password" className="" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+                <div>
+                    <div>
+                        <input type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
-                        <input type="password" className="" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+                <div>
+                    <div>
+                        <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
+                <div>
+                    <div>
                         <br/>
-                        <button className="" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+                        <button disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
                         <Link to='/'>Cancel</Link>
                     </div>
                 </div>

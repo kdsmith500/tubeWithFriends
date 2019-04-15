@@ -9,7 +9,11 @@ const HomePage = (props) => (
     <div className="">
         <NavBar
             user={props.user}
+            navTitle={props.navTitle}
+            navWelcome={props.navWelcome}
             handleLogout={props.handleLogout}
+            handleNavTitle={props.handleNavTitle}
+            handleNavWelcome={props.handleNavWelcome}
             />
         <br/>
         <HomeBanner
@@ -18,11 +22,15 @@ const HomePage = (props) => (
             homeIcon3={props.homeIcon3}
             homeIcon4={props.homeIcon4}
             homeIcon5={props.homeIcon5}
+            homeProfileHr={props.homeProfileHr}
+            homeRooms={props.homeRooms}
             handleHomeIcon1={props.handleHomeIcon1}
             handleHomeIcon2={props.handleHomeIcon2}
             handleHomeIcon3={props.handleHomeIcon3}
             handleHomeIcon4={props.handleHomeIcon4}
             handleHomeIcon5={props.handleHomeIcon5}
+            handleHomeProfileHr={props.handleHomeProfileHr}
+            handleHomeRooms={props.handleHomeRooms}
         />
         <br/><br/><br/>
         {/* <NewComponent /> <<<<<-----Experiment in react hooks, not needed. */}

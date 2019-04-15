@@ -7,7 +7,11 @@ const ChatRoomPage = (props) => (
     <div className="ChatRoomPage">
         <NavBar
             user={props.user}
+            navTitle={props.navTitle}
+            navWelcome={props.navWelcome}
             handleLogout={props.handleLogout}
+            handleNavTitle={props.handleNavTitle}
+            handleNavWelcome={props.handleNavWelcome}
         />
         <br/>
         <ChatRoom />

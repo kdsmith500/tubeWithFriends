@@ -6,7 +6,11 @@ const UsersPage = (props) => (
     <div className="UsersPage">
         <NavBar
             user={props.user}
+            navTitle={props.navTitle}
+            navWelcome={props.navWelcome}
             handleLogout={props.handleLogout}
+            handleNavTitle={props.handleNavTitle}
+            handleNavWelcome={props.handleNavWelcome}
         />
         <br/>
         ADMIN'S EYES ONLY: Users Page

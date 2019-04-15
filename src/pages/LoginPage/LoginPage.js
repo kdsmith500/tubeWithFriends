@@ -32,29 +32,43 @@ class LoginPage extends Component {
   }
 
   render() {
+    let hrStyle = {
+      border: `3px solid ${this.props.loginSignUpHr}`
+    };
+    
+    let loginStyle = {
+      color: `${this.props.loginSignUp}`
+    }
+    
+    let titleStyle = {
+      color: `${this.props.loginSignUpTitle}`
+    };
+
     return (
       <div className="LoginPage">
         <header>
           <br/>
-          <h1>tubeWithFriends</h1>
-          <br/><hr/><br/>
+          <h1 style={titleStyle} onClick={this.props.handleLoginSignUpTitle}>tubeWithFriends</h1>
+          <br/>
+          <hr style={hrStyle} onClick={this.props.handleLoginSignUpHr} />
+          <br/>
         </header>
-        <h3 className="">Log In</h3>
-        <form className="" onSubmit={this.handleSubmit} >
-          <div className="">
-            <div className="">
-              <input type="email" className="" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+        <h3 style={loginStyle} onClick={this.props.handleLoginSignUp}>Log In</h3>
+        <form onSubmit={this.handleSubmit} >
+          <div>
+            <div>
+              <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
-          <div className="">
-            <div className="">
-              <input type="password" className="" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+          <div>
+            <div>
+              <input type="password" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
-          <div className="">
-            <div className="">
+          <div>
+            <div>
               <br/>
-              <button className="">Log In</button>&nbsp;&nbsp;&nbsp;
+              <button>Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/signup'>Sign Up</Link>
             </div>
           </div>

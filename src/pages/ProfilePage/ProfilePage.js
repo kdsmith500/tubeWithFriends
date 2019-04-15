@@ -47,20 +47,34 @@ class ProfilePage extends Component {
             <div className="">
                 <NavBar
                     user={this.props.user}
+                    navTitle={this.props.navTitle}
+                    navWelcome={this.props.navWelcome}
                     handleLogout={this.props.handleLogout}
+                    handleNavTitle={this.props.handleNavTitle}
+                    handleNavWelcome={this.props.handleNavWelcome}
                 />
                 <br/>
                 <UserProfile
+                    profileBio={this.props.profileBio}
+                    profileEmail={this.props.profileEmail}
+                    profileTitle={this.props.profileTitle}
                     user={this.props.user}
-                    handleUpdateUserProfile={this.handleUpdateUserProfile}
+                    handleProfileBio={this.props.handleProfileBio}
+                    handleProfileEmail={this.props.handleProfileEmail}
+                    handleProfileTitle={this.props.handleProfileTitle}
                     />
                 <br/>
                 <UserProfileEdit
                     userEdit={this.state.user}
+                    homeProfileHr={this.props.homeProfileHr}
+                    profileEdit={this.props.profileEdit}
                     user={this.props.user}
                     handleEdit={this.handleEdit}
+                    handleHomeProfileHr={this.props.handleHomeProfileHr}
+                    handleProfileEdit={this.props.handleProfileEdit}
                     handleSubmitEdit={this.handleSubmitEdit}
                     handleSubmitDelete={this.handleSubmitDelete}
+                    handleSignupOrLogin={this.handleSignupOrLogin}
                 />
             </div>
         );
