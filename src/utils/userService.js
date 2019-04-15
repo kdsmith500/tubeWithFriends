@@ -13,10 +13,7 @@ function signup(user) {
     // Probably a duplicate email
     throw new Error('Email already taken!');
   })
-  // Parameter destructuring!
   .then(({token}) => tokenService.setToken(token));
-  // The above could have been written as
-  //.then((token) => token.token);
 }
 
 function getUser() {
@@ -45,15 +42,19 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-// function show() {
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       'Authorization': 'Bearer ' + tokenService.getToken()
-//     }
-//   };
-  // return fetch(BASE_URL, options).then(res => res.json());
-// }
+function show() {
+  return fetch(BASE_URL + 'show', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .catch(error => console.error('Error:', error))
+}
 
 function edit(profile) {
   return fetch(BASE_URL + 'profile/edit', {
@@ -65,10 +66,8 @@ function edit(profile) {
     body: JSON.stringify(profile)
   })
   .then(res => res.json())
-  .then(response => {
-    return JSON.stringify(response)
-  })
   .catch(error => console.error('Error:', error))
+  // .then(({token}) => tokenService.getToken(token));
   .then(({token}) => tokenService.setToken(token));
 }
 
@@ -76,13 +75,12 @@ function index() {
   return fetch(BASE_URL + 'index', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken()
     }
   })
-  .then(res => res.json())
-  .then(response => {
-    return JSON.stringify(response)
+  .then(res => {
+    return res.json()
   })
   .catch(error => console.error('Error:', error))
 }
@@ -97,14 +95,26 @@ function remove() {
   });
 }
 
+function removeUser(email) {
+  return fetch(BASE_URL + 'index/delete', {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    },
+    body: JSON.stringify({email})
+  });
+}
+
 export default {
   signup, 
   getUser,
   getAdmin,
   logout,
   login,
-  // show,
+  show,
   edit,
   remove,
+  removeUser,
   index
 };

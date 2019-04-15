@@ -8,7 +8,8 @@ module.exports = {
     show,
     edit,
     index,
-    remove
+    remove,
+    removeUser
 };
 
 async function signup(req, res) {
@@ -41,13 +42,11 @@ async function login(req, res) {
 }
 
 async function show(req, res) {
-    const profile = await User.find( req.user );
-    res.json(profile);
+    const user = await User.find({ email: req.user.email });
+    res.json(user);
 }
 
 async function edit(req, res) {
-    console.log(req.body)
-    console.log('user: ', req.user)
     try {
         await User.findOneAndUpdate({ email: req.user.email }, req.body, { new: true })
             .then(user => {
@@ -61,15 +60,23 @@ async function edit(req, res) {
 }
 
 async function index(req, res) {
-    const users = await User.find({});
-    // .sort({ email: 1 });
-    console.log(users);
+    const users = await User.find({}).sort({ email: 1 });
     res.json(users);
 }
 
 async function remove(req, res) {
     try {
+        console.log(req.user.email);
         await User.findOneAndRemove({ email: req.user.email });
+    } catch (err) {
+        res.json({err});
+    }
+}
+
+async function removeUser(req, res) {
+    try {
+        await User.findOneAndRemove(req.body);
+        console.log(req.body)
     } catch (err) {
         res.json({err});
     }

@@ -15,14 +15,13 @@ const icons = ['./images/icon-computer.png', './images/icon-girl-1.png', './imag
   './images/icon-laptop.png', './images/icon-guy-2.png', './images/icon-tablet.png', 
   './images/icon-girl-3.png'];
 
-const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black'];
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'grey'];
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: {},
-      // users: [],
       homeIcon1: './images/icon-computer.png',
       homeIcon2: './images/icon-boombox.png',
       homeIcon3: './images/icon-television.png',
@@ -70,57 +69,57 @@ class App extends Component {
   }
 
   handleHomeProfileHr = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ homeProfileHr: colors[idx] });
   }
 
   handleHomeRooms = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ homeRooms: colors[idx] });
   }
 
   handleLoginSignUp = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ loginSignUp: colors[idx] });
   }
   
   handleLoginSignUpHr = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ loginSignUpHr: colors[idx] });
   }
 
   handleLoginSignUpTitle = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ loginSignUpTitle: colors[idx] });
   }
 
   handleNavTitle = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ navTitle: colors[idx] });
   }
 
   handleNavWelcome = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ navWelcome: colors[idx] });
   }
   
   handleProfileBio = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ profileBio: colors[idx] });
   }
 
   handleProfileEdit = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ profileEdit: colors[idx] });
   }
 
   handleProfileEmail = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ profileEmail: colors[idx] });
   }
 
   handleProfileTitle = () => {
-    let idx = randomService.randomEight();
+    let idx = randomService.randomNine();
     this.setState({ profileTitle: colors[idx] });
   }
 
@@ -135,17 +134,11 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  // handleUsers = () => {
-  //   this.setState({ users: userService.index() });
-  // }
-
   /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
     const user = await userService.getUser();
     this.setState({ user });
-    // const users = await userService.index();
-    // this.setState({ users });
   }
 
   render() {
@@ -247,11 +240,9 @@ class App extends Component {
                 navTitle={this.state.navTitle}
                 navWelcome={this.state.navWelcome}
                 user={this.state.user}
-                // users={this.state.users}
                 handleLogout={this.handleLogout}
                 handleNavTitle={this.handleNavTitle}
                 handleNavWelcome={this.handleNavWelcome}
-                // handleUsers={this.handleUsers}
               />
             :
               <Redirect to='/'/>

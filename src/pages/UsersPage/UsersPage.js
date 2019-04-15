@@ -6,39 +6,15 @@ import userService from '../../utils/userService';
 
 class UsersPage extends Component {
     state = {
-        users: []
+        users: [],
     };
-    
-    // handleUsers = () => {
-    //     const users = userService.index();
-    //     this.setState({ users });
-    // } 
-
-    // handleUsersIndex = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     });
-    // }
-
-    // handleUsersIndexGet = async (e) => {
-    //     // e.preventDefault();
-    //     try {
-    //         // const users = 
-    //         await userService.index().then(this.handleUsersIndex());
-    //         // .then(this.setState({ users: users }));
-    //     } catch (err) {
-    //         // this.props.updateMessage(err.message);
-    //     }
-    // };
 
     async componentDidMount() {
         const users = await userService.index();
         this.setState({ users });
     }
 
-    render() {
-        // console.log(this.props.users);
-        console.log(`user page, ${this.state.users}`);
+    render() {  
         return (
             <div className="UsersPage" onLoad={this.props.handleUsers}>
                 <NavBar
@@ -50,9 +26,12 @@ class UsersPage extends Component {
                     handleNavWelcome={this.props.handleNavWelcome}
                 />
                 <br/>
-                <Users
-                    users={this.state.users}
-                />
+                {this.state.users.map((user, idx) => (
+                    <Users
+                        key={idx}
+                        user={user}
+                    />   
+                ))}
             </div>
         );
     }

@@ -1,5 +1,5 @@
-function randomEight() {
-    return Math.floor(Math.random() * Math.floor(8));
+function randomNine() {
+    return Math.floor(Math.random() * Math.floor(9));
 }
 
 function randomTen() {
@@ -7,6 +7,6 @@ function randomTen() {
 }
 
 export default {
-    randomEight,
+    randomNine,
     randomTen
   };

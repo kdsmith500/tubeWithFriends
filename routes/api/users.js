@@ -8,10 +8,12 @@ router.post('/login', usersCtrl.login);
 
 /*---------- Protected Routes ----------*/
 router.use(require('../../config/auth'));
-// router.post('/', checkAuth, usersCtrl.show);
+router.get('/show', checkAuth, usersCtrl.show);
+router.get('/index', checkAdmin, usersCtrl.index);
 router.put('/profile/edit', checkAuth, usersCtrl.edit);
 router.delete('/profile/delete', checkAuth, usersCtrl.remove);
-router.get('/index', checkAdmin, usersCtrl.index);
+router.delete('/index/delete', checkAdmin, usersCtrl.removeUser);
+
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {

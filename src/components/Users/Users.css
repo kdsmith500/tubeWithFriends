@@ -1,0 +1,24 @@
+.Users {
+    display: flex;
+    flex-flow: column;
+    border: 3px solid black;
+    width: 50%;
+    margin: 0 auto 25px auto;
+    background-color: lightgray;
+}
+
+.Users-email-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Users-avatar-bio {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Users-hr {
+    border: 1.5px black solid;
+}
