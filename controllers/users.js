@@ -61,17 +61,15 @@ async function edit(req, res) {
 }
 
 async function index(req, res) {
-    const users = await User.find({}).sort({ email: 1 });
+    const users = await User.find({});
+    // .sort({ email: 1 });
+    console.log(users);
     res.json(users);
 }
 
 async function remove(req, res) {
     try {
         await User.findOneAndRemove({ email: req.user.email });
-            // .then(user => {
-            //     res.status(200)
-            //     .json(user)
-            // })
     } catch (err) {
         res.json({err});
     }

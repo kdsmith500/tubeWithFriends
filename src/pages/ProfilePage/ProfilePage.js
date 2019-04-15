@@ -44,7 +44,7 @@ class ProfilePage extends Component {
 
     render() {
         return (
-            <div className="">
+            <div>
                 <NavBar
                     user={this.props.user}
                     navTitle={this.props.navTitle}

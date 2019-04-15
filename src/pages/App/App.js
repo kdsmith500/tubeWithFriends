@@ -22,6 +22,7 @@ class App extends Component {
     super();
     this.state = {
       user: {},
+      // users: [],
       homeIcon1: './images/icon-computer.png',
       homeIcon2: './images/icon-boombox.png',
       homeIcon3: './images/icon-television.png',
@@ -134,16 +135,20 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  // handleUsers = () => {
+  //   this.setState({ users: userService.index() });
+  // }
+
   /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
-    console.log('componentDidMount');
-    const user = userService.getUser();
+    const user = await userService.getUser();
     this.setState({ user });
+    // const users = await userService.index();
+    // this.setState({ users });
   }
 
   render() {
-    console.log('render');
     return (
       <div className="App">
         <Switch>
@@ -242,9 +247,11 @@ class App extends Component {
                 navTitle={this.state.navTitle}
                 navWelcome={this.state.navWelcome}
                 user={this.state.user}
+                // users={this.state.users}
                 handleLogout={this.handleLogout}
                 handleNavTitle={this.handleNavTitle}
                 handleNavWelcome={this.handleNavWelcome}
+                // handleUsers={this.handleUsers}
               />
             :
               <Redirect to='/'/>

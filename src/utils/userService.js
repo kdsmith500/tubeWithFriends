@@ -56,10 +56,8 @@ function login(creds) {
 // }
 
 function edit(profile) {
-  console.log(profile);
-  return fetch(BASE_URL + 'edit', {
+  return fetch(BASE_URL + 'profile/edit', {
     method: 'PUT',
-    // headers: new Headers({'Content-Type': 'application/json'}),
     headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken()
@@ -68,25 +66,29 @@ function edit(profile) {
   })
   .then(res => res.json())
   .then(response => {
-    console.log('Success:', JSON.stringify(response));
     return JSON.stringify(response)
   })
   .catch(error => console.error('Error:', error))
   .then(({token}) => tokenService.setToken(token));
 }
 
-// function index() {
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       'Authorization': 'Bearer ' + tokenService.getToken()
-//     }
-//   };
-//   return fetch(BASE_URL, options).then(res => res.json());
-// }
+function index() {
+  return fetch(BASE_URL + 'index', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  })
+  .then(res => res.json())
+  .then(response => {
+    return JSON.stringify(response)
+  })
+  .catch(error => console.error('Error:', error))
+}
 
 function remove() {
-  return fetch(BASE_URL + 'profile', {
+  return fetch(BASE_URL + 'profile/delete', {
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json',
@@ -104,5 +106,5 @@ export default {
   // show,
   edit,
   remove,
-  // index,
+  index
 };
