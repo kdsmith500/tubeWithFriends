@@ -17,16 +17,23 @@ const icons = ['./images/icon-computer.png', './images/icon-girl-1.png', './imag
 
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'grey'];
 
+const toggle = ['', 'HomeBanner-img'];
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: {},
       homeIcon1: './images/icon-computer.png',
+      homeIconStyle1: '',
       homeIcon2: './images/icon-boombox.png',
+      homeIconStyle2: '',
       homeIcon3: './images/icon-television.png',
-      homeIcon5: './images/icon-laptop.png',
-      homeIcon4: './images/icon-tablet.png',
+      homeIconStyle3: '',
+      homeIcon4: './images/icon-laptop.png',
+      homeIconStyle4: '',
+      homeIcon5: './images/icon-tablet.png',
+      homeIconStyle5: '',
       homeProfileHr: 'black',
       homeRooms: 'black',
       loginSignUp: 'black',
@@ -66,6 +73,46 @@ class App extends Component {
   handleHomeIcon5 = () => {
     let idx = randomService.randomTen();
     this.setState({ homeIcon5: icons[idx] });
+  }
+
+  handleHomeIconClick1 = () => {
+    if (this.state.homeIconStyle1 === '') {
+      this.setState({ homeIconStyle1: toggle[1] });
+    } else {
+      this.setState({ homeIconStyle1: toggle[0] });
+    }
+  }
+
+  handleHomeIconClick2 = () => {
+    if (this.state.homeIconStyle2 === '') {
+      this.setState({ homeIconStyle2: toggle[1] });
+    } else {
+      this.setState({ homeIconStyle2: toggle[0] });
+    }
+  }
+
+  handleHomeIconClick3 = () => {
+    if (this.state.homeIconStyle3 === '') {
+      this.setState({ homeIconStyle3: toggle[1] });
+    } else {
+      this.setState({ homeIconStyle3: toggle[0] });
+    }
+  }
+
+  handleHomeIconClick4 = () => {
+    if (this.state.homeIconStyle4 === '') {
+      this.setState({ homeIconStyle4: toggle[1] });
+    } else {
+      this.setState({ homeIconStyle4: toggle[0] });
+    }
+  }
+
+  handleHomeIconClick5 = () => {
+    if (this.state.homeIconStyle5 === '') {
+      this.setState({ homeIconStyle5: toggle[1] });
+    } else {
+      this.setState({ homeIconStyle5: toggle[0] });
+    }
   }
 
   handleHomeProfileHr = () => {
@@ -173,20 +220,30 @@ class App extends Component {
             userService.getUser() ? 
               <HomePage
                 homeIcon1={this.state.homeIcon1}
+                homeIconStyle1={this.state.homeIconStyle1}
                 homeIcon2={this.state.homeIcon2}
+                homeIconStyle2={this.state.homeIconStyle2}
                 homeIcon3={this.state.homeIcon3}
+                homeIconStyle3={this.state.homeIconStyle3}
                 homeIcon4={this.state.homeIcon4}
+                homeIconStyle4={this.state.homeIconStyle4}
                 homeIcon5={this.state.homeIcon5}
+                homeIconStyle5={this.state.homeIconStyle5}
                 homeProfileHr={this.state.homeProfileHr}
                 homeRooms={this.state.homeRooms}
                 navTitle={this.state.navTitle}
                 navWelcome={this.state.navWelcome}
                 user={this.state.user}
                 handleHomeIcon1={this.handleHomeIcon1}
+                handleHomeIconClick1={this.handleHomeIconClick1}
                 handleHomeIcon2={this.handleHomeIcon2}
+                handleHomeIconClick2={this.handleHomeIconClick2}
                 handleHomeIcon3={this.handleHomeIcon3}
+                handleHomeIconClick3={this.handleHomeIconClick3}
                 handleHomeIcon4={this.handleHomeIcon4}
+                handleHomeIconClick4={this.handleHomeIconClick4}
                 handleHomeIcon5={this.handleHomeIcon5}
+                handleHomeIconClick5={this.handleHomeIconClick5}
                 handleHomeProfileHr={this.handleHomeProfileHr}
                 handleHomeRooms={this.handleHomeRooms}
                 handleLogout={this.handleLogout}

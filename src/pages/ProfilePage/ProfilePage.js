@@ -5,13 +5,24 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import UserProfileEdit from '../../components/UserProfileEdit/UserProfileEdit';
 import userService from '../../utils/userService'
 
+const toggle = ['', 'UserProfile-avatar']
+
 // const ProfilePage = (props) => (
 class ProfilePage extends Component {
     state = {
         name: '',
         avatar: '',
-        bio: ''
+        bio: '',
+        profileAvatar: ''
     };
+
+    handleProfileAvatar = () => {
+        if (this.state.profileAvatar === '') {
+            this.setState({ profileAvatar: toggle[1] });
+        } else {
+            this.setState({ profileAvatar: toggle[0] });
+        }
+    }
 
     handleEdit = (e) => {
         // this.props.updateMessage('');
@@ -55,10 +66,12 @@ class ProfilePage extends Component {
                 />
                 <br/>
                 <UserProfile
+                    profileAvatar={this.state.profileAvatar}
                     profileBio={this.props.profileBio}
                     profileEmail={this.props.profileEmail}
                     profileTitle={this.props.profileTitle}
                     user={this.props.user}
+                    handleProfileAvatar={this.handleProfileAvatar}
                     handleProfileBio={this.props.handleProfileBio}
                     handleProfileEmail={this.props.handleProfileEmail}
                     handleProfileTitle={this.props.handleProfileTitle}
