@@ -79,6 +79,8 @@ This project seeks to make a chat room where users can queue up music and movies
 <br/>
 <a href="https://trello.com/b/KOLT8LYU/tubewithfriends">Trello</a>
 <br/>
+<a href="https://tube-with-friends.herokuapp.com/">Heroku</a>
+<br/>
 <h5>Wireframes and ERD:</h5>
 <img src="wireframes/splash-page.jpg">
 <img src="wireframes/sign-up-page.jpg">
